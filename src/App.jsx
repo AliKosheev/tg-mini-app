@@ -2,6 +2,17 @@ import React, { useEffect, useState } from 'react';
 
 const tg = window.Telegram.WebApp;
 
+useEffect(() => {
+  if (window.Telegram && window.Telegram.WebApp) {
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+    tg.expand();
+    // Дополнительный код, использующий tg
+  } else {
+    console.log("Приложение запущено вне Telegram.");
+  }
+}, []);
+
 const mockTrips = [
   {
     id: 1,
